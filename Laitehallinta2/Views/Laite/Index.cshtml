@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Laitehallinta2.Laitteet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Laitteet</h2>
+<br />
+
+
+<div class="w3-container">
+    <a href="Laite/Create" class="w3-button w3-teal">Lisää uusi laite</a>
+</div>
+@*
+    <p>
+        @Html.ActionLink("Lisää uusi laite", "Create")
+    </p>*@
+
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+    <br />
+    <div class="w3-container">
+        <h2></h2>
+        <p></p>
+
+        <input class="w3-input w3-border w3-padding" type="text" placeholder="Etsi sarjanumerolla" id="myInput" onkeyup="myFunction()">
+        <br></br>
+
+
+        <table class="w3-table-all w3-hoverable" id="myTable">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sarjanumero)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Merkki)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Malli)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Muuta)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sarjanumero)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Merkki)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Malli)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Muuta)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.LaiteID }, new { @class = "w3-button w3-teal" }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.LaiteID }, new { @class = "w3-button w3-teal" }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.LaiteID }, new { @class = "w3-button w3-teal" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <script>
+            function myFunction() {
+                var input, filter, table, tr, td, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+
+
+
+                    }
+                }
+            }
+        </script>
+</body>
+</html>

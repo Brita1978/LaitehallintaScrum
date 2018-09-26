@@ -1,0 +1,45 @@
+﻿@model Laitehallinta2.Henkilot
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<h2>Poista henkilö</h2>
+
+<h3>Haluatko varmasti poistaa henkilön?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Etunimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etunimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sukunimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sukunimi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Poista" class="btn btn-danger" /> |
+        
+            @Html.ActionLink("Takaisin listaan", "Index", new { @class = "w3-button w3-teal" })
+        </div>
+        }
+    </div>

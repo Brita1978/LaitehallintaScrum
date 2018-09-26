@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Laitehallinta2.Henkilot>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h2>Henkilöt</h2>
+<br />
+
+<div class="w3-container">
+    <a href="Henkilo/Create" class="w3-button w3-teal">Lisää uusi henkilö</a>
+    </div>
+@*
+    <p>
+        @Html.ActionLink("Lisää uusi henkilö", "Create")
+    </p>
+*@
+
+
+
+    <html>
+    <title>W3.CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <body>
+        <br />
+        <div class="w3-container">
+            <h2></h2>
+            <p></p>
+
+            <input class="w3-input w3-border w3-padding" type="text" placeholder="Etsi etunimellä" id="myInput" onkeyup="myFunction()">
+            <br></br>
+
+           
+
+                                <table class="w3-table-all w3-hoverable" id="myTable">
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Etunimi)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Sukunimi)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Etunimi)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Sukunimi)
+                                            </td>
+                                            <td>
+                                                @Html.ActionLink("Muokkaa", "Edit", new { id = item.HenkiloID }, new { @class = "w3-button w3-teal" }) |
+                                                @Html.ActionLink("Yksityiskohdat", "Details", new { id = item.HenkiloID }, new { @class = "w3-button w3-teal" }) |
+                                                @Html.ActionLink("Poista", "Delete", new { id = item.HenkiloID }, new { @class = "w3-button w3-teal" })
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
+
+
+
+
+                                <script>
+                                    function myFunction() {
+                                        var input, filter, table, tr, td, i;
+                                        input = document.getElementById("myInput");
+                                        filter = input.value.toUpperCase();
+                                        table = document.getElementById("myTable");
+                                        tr = table.getElementsByTagName("tr");
+                                        for (i = 0; i < tr.length; i++) {
+                                            td = tr[i].getElementsByTagName("td")[0];
+                                            if (td) {
+                                                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                                                    tr[i].style.display = "";
+                                                } else {
+                                                    tr[i].style.display = "none";
+                                                }
+
+
+
+                                            }
+                                        }
+                                    }
+                                </script>
+
+
+            </body>
+        </html>

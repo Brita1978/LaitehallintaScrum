@@ -1,0 +1,32 @@
+﻿@model Laitehallinta2.Tilat
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Poista tilatieto</h2>
+
+<h3>Haluatko varmasti poistaa tilatiedon?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarkennus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarkennus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Poista" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

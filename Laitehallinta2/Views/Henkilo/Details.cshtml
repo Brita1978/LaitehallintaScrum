@@ -1,0 +1,42 @@
+﻿@model Laitehallinta2.Henkilot
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Lisätietoa</h2>
+
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Etunimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Etunimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sukunimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sukunimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HenkiloID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HenkiloID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Muokkaa", "Edit", new { id = Model.HenkiloID }) |
+    @Html.ActionLink("Takaisin listaan", "Index")
+</p>

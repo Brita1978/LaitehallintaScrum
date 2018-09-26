@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Laitehallinta2.Tilat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tilat</h2>
+
+<p>
+    @Html.ActionLink("Lisää uusi tila", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarkennus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarkennus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TilaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TilaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TilaID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,57 @@
+﻿@model Laitehallinta2.Laitteet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Lisätietoa</h2>
+
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LaiteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LaiteID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sarjanumero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sarjanumero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Merkki)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Merkki)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Malli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Malli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Muuta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Muuta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LaiteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
